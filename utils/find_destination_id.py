@@ -7,12 +7,12 @@ from config_data import config
 city_url = "https://hotels4.p.rapidapi.com/locations/v3/search"
 
 headers = {
-	"X-RapidAPI-Key": "e418064698msh6828f10f851a96ep1f2a6djsn6cef63b16a1a",
+	"X-RapidAPI-Key":  config.RAPID_API_KEY,
 	"X-RapidAPI-Host": "hotels4.p.rapidapi.com"
 }
 
 
-def destination_id():
+def destination_id(city):
     pattern = '<[^>]*>'
     querystring = {"query": city, "locale": "en_US", "currency":"USD"}
     response = requests.request("GET", city_url, headers=headers, params=querystring)
